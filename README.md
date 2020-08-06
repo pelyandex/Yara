@@ -8,7 +8,7 @@
 ------------
 
 ```sh
-  $ npm clone https://github.com/pelyandex/Yara3.0.git
+  $ npm clone https://github.com/pelyandex/Yara.git
   $ npm install
 ```
 Запуск
