@@ -1,0 +1,84 @@
+.yara .main-block-signin {
+  flex-direction: column;
+  height: 310px;
+}
+.yara .main-block-signup {
+  flex-direction: column;
+  height: auto;
+}
+.error {
+  position: absolute;
+  right: 0;
+  bottom: -25px;
+  font-size: 12px;
+}
+.settings_confirm-block_button {
+  margin-top: 0px;
+  color: silver;
+  width: 120px;
+  height: 30px;
+  border: 1px solid silver;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+}
+.yara .index_main-block {
+  width: 800px;
+}
+.error-box {
+  position: absolute;
+  top:5%;
+  right:2%;
+  min-width:200px;
+  height: 50px;
+  filter: opacity(.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 0.5px solid grey;
+  border-left: 0.5px solid grey;
+  padding: 10px;
+}
+.active-error {
+  animation: vision 3s linear forwards;
+  display: flex;
+}
+.error-box_message {
+  font-size: 15px;
+}
+@keyframes vision {
+  0%{
+    transform: translateY(-200%);
+  }
+  30%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(0);
+  }
+  70%{
+    transform: translateY(0);
+  }
+  100%{
+    transform: translateY(-200%);
+  }
+}
+.index_create-chat-input {
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.plus {
+  cursor: pointer;
+  font-size: 15px;
+}
+.logout {
+  position: absolute;
+  top:3%;
+  right: 4%;
+  z-index: 1000;
+  cursor: pointer
+}

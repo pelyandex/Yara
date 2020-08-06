@@ -1,0 +1,241 @@
+@import './auth.scss';
+.error {
+  color: red;
+  visibility: hidden;
+  position: absolute;
+  font-size: 10px;
+}
+.active_input-error {
+  border: 2px solid red;
+  border-color: red !important;
+}
+.active_input-error + .error {
+  visibility: visible;
+}
+
+.yara {
+  height: 100vh;
+  background-image: url(https://subdued-view.surge.sh/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: silver;
+}
+
+.main-block {
+  border-bottom: 0.5px solid grey;
+  border-left: 0.5px solid grey;
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+  background: rgba(255, 255, 255, 0.1);
+  width: 420px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+}
+.main-block_title {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.main_chat-box {
+  width: 220px;
+  height: 100%;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.chat-box_search-input {
+  width: 155px;
+  background: transparent;
+  border-radius: 5px;
+  margin: 20px auto 0;
+  border: 0.4px solid grey;
+  padding: 3px;
+  padding-left: 5px;
+  color: #c0c0c0;
+  font-size: 13px;
+  display:flex;
+  align-items:center;
+  justify-content: space-evenly;
+}
+.chat-box_search-input:focus {
+  color: silver;
+  border-color: transparent;
+}
+.chat-box {
+  border: 1px solid grey;
+  border-left: 0;
+  border-bottom: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 100%;
+  list-style-type: none;
+  padding: 15px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  overflow-y: scroll;
+}
+.chat-box_avatar {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+}
+.chat-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px;
+}
+.chat-box_info {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-left: 10px;
+  font-size: 12px;
+}
+.chat-box_info span {
+  margin-top: 5px;
+}
+.message-box {
+  position: relative;
+  width: 70%;
+  height: 100%;
+}
+.message-box_time {
+  position: absolute;
+  top: 40px;
+  left: calc(50% - 71.5px);
+  margin: 20px 0;
+  text-decoration: underline;
+}
+.chat-item:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+.message-box_messages-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 69%;
+  width: 97%;
+  border-top: 1px solid rgba(192, 192, 192, .2);;
+  border-top-right-radius: 8px;
+  overflow: hidden;
+}
+.messages-box_me {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  position: relative;
+  width: 100%;
+  margin: 15px 0;
+  font-size: 14px;
+}
+.message-box_input-box {
+  box-sizing: border-box;
+  height: 15%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.input-box_send-button {
+  background: url(https://subdued-view.surge.sh/send.png);
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+.input-box {
+  position: relative;
+  height: 100%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.message-box_smile {
+  width: 35px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.input-box_input {
+  margin-right: 15px;
+  width: 80%;
+  height: 50%;
+  background: transparent;
+  border-radius: 10px;
+  border: 1px solid grey;
+  color: #c0c0c0;
+  padding: 10px;
+  font-size: 14px;
+}
+.input-box_input:focus {
+  color: #c0c0c0;
+}
+/* ------------------------------------- */
+.main-block_controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+.controls_input-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.controls_input {
+  margin-top: 5px;
+  width: 260px;
+  border-radius: 5px;
+  border-color: silver;
+  background-color: transparent;
+  color: white;
+  padding-left: 5px;
+}
+.confirm-block_button {
+  margin-top: -40px;
+  color: silver;
+  width: 80px;
+  height: 30px;
+  border: 1px solid silver;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+}
+.controls_confirm-block span {
+  color: white;
+  position: absolute;
+  top: 5px;
+  right: -70px;
+  cursor: pointer;
+}
+.controls_confirm-block {
+  position: relative;
+  margin: 20px 0;
+}
+/* --------------------------------- */
+.main-block_settings {
+  flex-direction: column;
+  height: auto;
+}
