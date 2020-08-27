@@ -52,10 +52,6 @@
 - Примеры использования вы можете найти в проекте
 
 ## Ссылки для оценки работы Yara
-  ```sh
-  $ login: default
-  $ password: default
-```
  - https://praktikum-yara.herokuapp.com/signin
  - https://praktikum-yara.herokuapp.com//signup
  - https://praktikum-yara.herokuapp.com/
