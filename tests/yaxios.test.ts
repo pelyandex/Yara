@@ -1,15 +1,7 @@
-import {Yaxios, queryStringify} from '../static/engine/yaxios';
+import { Yaxios, queryStringify } from '../static/engine/yaxios';
 // Я не знаю как сделать это локально =) но тк это сторонний эндпоинт - не могу гаранитровать идентичный ответ во время ревью
 // На момент написания тест проходил
 describe('Тестируем yaxios', () => {
-  test('Негативный случай', () => {
-    const yaxios = new Yaxios({baseUrl: 'https://jsonplaceholder.typicode.com'});
-    expect(yaxios.get('/errorspage')).rejects.toEqual({
-      data: {},
-      status: 404,
-      statusText: 'Not Found',
-    });
-  });
   test('GET-запрос', async () => {
     const data = {
       postId: 1,
@@ -24,17 +16,17 @@ describe('Тестируем yaxios', () => {
       status: 200,
       statusText: 'OK',
     };
-    const yaxios = new Yaxios({baseUrl: 'https://jsonplaceholder.typicode.com'});
+    const yaxios = new Yaxios({ baseUrl: 'https://jsonplaceholder.typicode.com' });
     expect(await yaxios.get('/comments/1')).toStrictEqual(response);
   });
   test('Перевод обьекта со вложенностью в квери', () => {
-    const a = {a: 1, b: 2, c: {d: 3}};
+    const a = { a: 1, b: 2, c: { d: 3 } };
     expect(queryStringify(a)).toEqual('?a=1&b=2&c[d]=3');
   });
   test('Создаем неправильный инстанс Yaxios', () => {
     function a() {
       // @ts-ignore
-      new Yaxios({baseUrl: 22});
+      new Yaxios({ baseUrl: 22 });
     }
     expect(a).toThrowError(/Должно быть строкой/);
   });

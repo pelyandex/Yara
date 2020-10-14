@@ -12,7 +12,7 @@ console.log('\n\n\nヽ(♡‿♡)ノ     Hello !     ヽ(♡‿♡)ノ\n\n');
 setTimeout(() => console.log('     My name is \x1b[1;31m丫闩尺闩\x1b[0m   人____人'), 500);
 setTimeout(() => console.log('                          ≧ (◕ ‿‿ ◕) ≦  \n\n'), 500);
 setTimeout(
-  () => console.log('I’ve been created by Pelikh Ilya, especially for Yandex.Learning!'),
+  () => console.log('I’ve been created by Pelikh Ilya, especially for Yandex!'),
   2000
 );
 setTimeout(() => console.log('I\'m glad to see you!'), 3000);
