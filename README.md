@@ -50,11 +50,5 @@
 
 > Библиотека валидации
 - Примеры использования вы можете найти в проекте
-
-## Ссылки для оценки работы Yara
- - https://praktikum-yara.herokuapp.com/signin
- - https://praktikum-yara.herokuapp.com//signup
- - https://praktikum-yara.herokuapp.com/
- - https://praktikum-yara.herokuapp.com/settings
  
  **Спасибо, что дочитали до конца =).**
