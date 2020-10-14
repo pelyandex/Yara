@@ -2,12 +2,11 @@ import template from './signup.template';
 import { EventBus } from '../../engine/event-bus';
 import Button from '../../components/button/button';
 import { Validator, ContextValidator } from '../../engine/validator';
-import $ya, { $Yaxi } from '../../common/ya.instanses';
+import $ya from '../../common/ya.instanses';
 import { State } from '../../types';
-import { Options, Response } from '../../engine/yaxios';
 import { Router } from '../../engine/router';
 
-interface Context extends State {}
+interface Context extends State { }
 class Context {
   $ya = $ya;
 
@@ -51,10 +50,10 @@ class Context {
       const target = event.target as HTMLInputElement;
       this.data[target.id] = target.value;
     },
-    focus: (event:FocusEvent) => {
+    focus: (event: FocusEvent) => {
       (event.target as HTMLElement).classList.remove('active_input-error');
     },
-    blur: (event:FocusEvent) => {
+    blur: (event: FocusEvent) => {
       this.$validator.simple((event.target as HTMLElement).id);
     },
     toSignIn: () => {
@@ -67,28 +66,29 @@ class Context {
     },
     submit: () => {
       if (this.$validator.all()) {
-        const req = {
-          data: {
-            first_name: this.data.name,
-            login: this.data.login,
-            second_name: this.data.secondname,
-            email: this.data.email,
-            password: this.data.password,
-            phone: this.data.phone,
-          },
-        };
-        $Yaxi.signup(req as Options)
-          .then((res:Response) => {
-            if (res.status === 200) {
-              this.$router.go('/signin');
-            }
-          })
-          .catch((err:Response) => {
-            const box = document.querySelector('.error-box');
-            box.textContent = err.status === 400 ? err.data as string : 'Server unavalible';
-            box.classList.add('active-error');
-            setTimeout(() => box.classList.remove('active-error'), 3000);
-          });
+        // const req = {
+        //   data: {
+        //     first_name: this.data.name,
+        //     login: this.data.login,
+        //     second_name: this.data.secondname,
+        //     email: this.data.email,
+        //     password: this.data.password,
+        //     phone: this.data.phone,
+        //   },
+        // };
+        this.$router.go('/signin');
+        // $Yaxi.signup(req as Options)
+        //   .then((res:Response) => {
+        //     if (res.status === 200) {
+        //       this.$router.go('/signin');
+        //     }
+        //   })
+        //   .catch((err:Response) => {
+        //     const box = document.querySelector('.error-box');
+        //     box.textContent = err.status === 400 ? err.data as string : 'Server unavalible';
+        //     box.classList.add('active-error');
+        //     setTimeout(() => box.classList.remove('active-error'), 3000);
+        //   });
       }
     },
   };

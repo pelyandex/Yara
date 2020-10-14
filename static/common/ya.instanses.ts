@@ -1,7 +1,7 @@
 import { Yaxios, Options } from '../engine/yaxios';
 
 const config = {
-  baseUrl: 'https://ya-praktikum.tech/api/v2',
+  baseUrl: '',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -16,7 +16,7 @@ class Yaxi {
 
   createChat = (data: Options) => this.instance.post('/chats', data as Options);
 
-  signin = (data:unknown) => this.instance.post('/auth/signin', data as Options);
+  signin = (data: unknown) => this.instance.post('/auth/signin', data as Options);
 
   logout = () => this.instance.post('/auth/logout');
 

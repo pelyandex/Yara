@@ -5,9 +5,8 @@ import { Validator, ContextValidator } from '../../engine/validator';
 import { State } from '../../types';
 import $ya from '../../common/ya.instanses';
 import { Router } from '../../engine/router';
-import { Options, Response } from '../../engine/yaxios';
 
-interface Context extends State {}
+interface Context extends State { }
 class Context {
   $router: Router;
 
@@ -63,12 +62,13 @@ class Context {
     },
     submit: () => {
       if (this.$validator.all()) {
-        const req = { data: this.data };
-        this.$ya.put('/user/profile', req as Options).then((res: Response) => {
-          if (res.status === 200) {
-            this.$router.go('/');
-          }
-        });
+        this.$router.go('/');
+        // const req = { data: this.data };
+        // this.$ya.put('/user/profile', req as Options).then((res: Response) => {
+        //   if (res.status === 200) {
+        //     this.$router.go('/');
+        //   }
+        // });
       }
     },
   };

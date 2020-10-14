@@ -3,9 +3,9 @@ import { EventBus } from '../../engine/event-bus';
 import { Validator, ContextValidator } from '../../engine/validator';
 import { State, ChatResponse } from '../../types';
 import { $Yaxi } from '../../common/ya.instanses';
-import { Response, Options } from '../../engine/yaxios';
+import { Response } from '../../engine/yaxios';
 
-interface Context extends State {}
+interface Context extends State { }
 class Context {
   $bus: EventBus;
 
@@ -21,7 +21,7 @@ class Context {
     currentTime: 'Friday, 12 July 2020',
     chats: [
       {
-        id: 1,
+        id: 0,
         title: 'Test',
         avatar: '',
       },
@@ -47,7 +47,7 @@ class Context {
   };
 
   setup() {
-    this.methods.updateChats();
+    // this.methods.updateChats();
     console.log('setup index');
   }
 
@@ -80,7 +80,7 @@ class Context {
         'November',
         'December',
       ];
-      const dd:string | number = date.getDate();
+      const dd: string | number = date.getDate();
       const mm = months[date.getMonth() + 1];
       const yy = date.getFullYear();
       return `${dd}  ${mm}  ${yy}`;
@@ -107,30 +107,37 @@ class Context {
       (event.target as HTMLElement).classList.remove('active_input-error');
     },
     logout: () => {
-      $Yaxi.logout().then(() => this.$router.go('/signin'));
+      this.$router.go('/signin');
+      // $Yaxi.logout().then(() => this.$router.go('/signin'));
     },
     updateChats: () => {
       $Yaxi.getChats()
-        .then((res:Response) => {
+        .then((res: Response) => {
           this.data.chats = res.data as ChatResponse[];
         })
-        .catch((err:Response) => {
+        .catch((err: Response) => {
           if (err.status.toString().startsWith('4')) {
             this.$router.go('/signin');
           }
         });
     },
     createChat: () => {
-      $Yaxi.createChat({ data: { title: this.data.newChat } } as Options)
-        .then(() => {
-          (document.getElementById('chatInput') as HTMLInputElement).value = '';
-          this.methods.updateChats();
-        })
-        .catch(() => {
-          const box = document.querySelector('.error-box');
-          box.classList.add('active-error');
-          setTimeout(() => box.classList.remove('active-error'), 3000);
-        });
+      const newChat = {
+        id: 1,
+        title: this.data.newChat,
+        avatar: '',
+      };
+      this.data.chats = [...this.data.chats, newChat];
+      // $Yaxi.createChat({ data: { title: this.data.newChat } } as Options)
+      //   .then(() => {
+      //     (document.getElementById('chatInput') as HTMLInputElement).value = '';
+      //     this.methods.updateChats();
+      //   })
+      //   .catch(() => {
+      //     const box = document.querySelector('.error-box');
+      //     box.classList.add('active-error');
+      //     setTimeout(() => box.classList.remove('active-error'), 3000);
+      //   });
     },
   };
 
